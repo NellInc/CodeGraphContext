@@ -16,6 +16,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Literal
 from rich.console import Console
+from ._font_styles import FONT_STYLES
 
 console = Console(stderr=True)
 
@@ -197,9 +198,7 @@ def generate_html_template(
     <title>{safe_title} | CodeGraphContext</title>
     
     <!-- Modern Typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>{FONT_STYLES}</style>
     
     <!-- Vis Network Library -->
     <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>

@@ -1,5 +1,6 @@
 // src/panels/graphVisualizationPanel.ts
 import * as vscode from 'vscode';
+import { fontStyles } from './fontStyles';
 import { GraphData } from '../cgcManager';
 
 export class GraphVisualizationPanel {
@@ -60,7 +61,7 @@ export class GraphVisualizationPanel {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CGC Knowledge Graph</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>${fontStyles}</style>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }

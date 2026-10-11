@@ -1,3 +1,4 @@
+import { exportFontStyles } from '../../../lib/graphExportFontStyles';
 import React, { useEffect, useRef, useState, useCallback, useImperativeHandle, forwardRef } from 'react';
 import Graph from 'graphology';
 import Sigma from 'sigma';
@@ -153,7 +154,7 @@ export const GraphCanvas = forwardRef<any, GraphCanvasProps>(({
     <title>CGC - Interactive Graph Export</title>
     <script src="https://cdn.jsdelivr.net/npm/graphology@0.25.1/dist/graphology.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sigma@2.4.0/build/sigma.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>${exportFontStyles}</style>
     <style>
         body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #06060a; color: #e4e4ed; font-family: 'Outfit', sans-serif; }
         #sigma-container { width: 100%; height: 100%; }
