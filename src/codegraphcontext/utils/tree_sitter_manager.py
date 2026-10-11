@@ -128,16 +128,11 @@ class TreeSitterManager:
                 return self._language_cache[canonical_name]
             
             try:
-                # Special handling for C# which is available as tree_sitter_c_sharp
-                if canonical_name == "c_sharp":
-                    import tree_sitter_c_sharp
-                    # tree_sitter_c_sharp.language() returns a PyCapsule, wrap it in Language
-                    capsule = tree_sitter_c_sharp.language()
-                    language = Language(capsule)
-                else:
-                    # Load the language from tree-sitter-language-pack
-                    language = get_language(canonical_name)
-                
+                # The pack exposes C# as "csharp"; keep our public/internal
+                # "c_sharp" name without depending on a separate binding package.
+                pack_name = "csharp" if canonical_name == "c_sharp" else canonical_name
+                language = get_language(pack_name)
+
                 self._language_cache[canonical_name] = language
                 return language
             except (KeyError, ModuleNotFoundError):
