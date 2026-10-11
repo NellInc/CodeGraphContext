@@ -26,6 +26,7 @@ jobs:
         run: mkdocs build --clean
 
       - name: Deploy to codegraphcontext.github.io
+        if: github.repository == 'CodeGraphContext/CodeGraphContext'
         uses: peaceiris/actions-gh-pages@v4
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
